@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <title>W3.CSS</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  />
+  <link
+    rel="stylesheet"
+    href="https://www.w3schools.com/w3css/4/w3.css"
+  />
+  <body>
+    <div class="w3-container">
+      <form
+        action="/update-user"
+        method="POST"
+        class="w3-card-4"
+        style="
+          width: 50%;
+          margin-left: auto;
+          margin-right: auto;
+        "
+      >
+        <h2 style="margin-left: 20px">User Detail</h2>
+        <header class="w3-container w3-light-grey">
+          <div style="margin: 10px">
+            <div style="margin: 10px">
+              <label for="">First Name:</label>
+              <input
+                type="text"
+                name="firstName"
+                value="<%= dataUser.firstName %>"
+                id=""
+              />
+            </div>
+            <div style="margin: 10px">
+              <label for="">Last Name:</label>
+              <input
+                type="text"
+                name="lastName"
+                value="<%= dataUser.lastName %>"
+                id=""
+              />
+            </div>
+          </div>
+        </header>
+        <div class="w3-container">
+          <div style="margin: 10px">
+            <label for="">Email:</label>
+            <input
+              type="text"
+              name="email"
+              value="<%= dataUser.email %>"
+            />
+          </div>
+          <hr />
+          <img
+            src="img_avatar3.png"
+            alt="Avatar"
+            class="w3-left w3-circle w3-margin-right"
+            style="width: 60px"
+          />
+          <div>
+            <label for="">Address</label>
+            <input
+              type="text"
+              value="<%= dataUser.address %>"
+              name="address"
+              id=""
+            />
+          </div>
+          <br />
+        </div>
+        <div style="display: flex; gap: 20px">
+          <a
+            class="w3-button w3-block w3-dark-grey"
+            href="/"
+            style="font-size: 22px; text-decoration: none"
+            >Back</a
+          >
+          <input
+            type="text"
+            value="<%= dataUser.ID %>"
+            hidden
+            name="id"
+          />
+
+          <a
+            href=""
+            class="w3-button w3-block w3-blue btn-save"
+            style="font-size: 22px; text-decoration: none"
+            ><button
+              class="w3-button w3-block w3-blue btn-save"
+              type="submit"
+            >
+              Save
+            </button></a
+          >
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

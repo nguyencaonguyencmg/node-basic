@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <title>Detail Page</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  />
+  <link
+    rel="stylesheet"
+    href="https://www.w3schools.com/w3css/4/w3.css"
+  />
+  <body>
+    <div class="w3-container">
+      <% for(let i=0; i < dataUser.length; i++) { %>
+      <div
+        class="w3-card-4"
+        style="
+          width: 50%;
+          margin-left: auto;
+          margin-right: auto;
+        "
+      >
+        <h2 style="margin-left: 20px">User Detail</h2>
+        <header class="w3-container w3-light-grey">
+          <h3>
+            <%= dataUser[i].firstName +' '+
+            dataUser[i].lastName %>
+          </h3>
+        </header>
+        <div class="w3-container">
+          <p><%= dataUser[i].email %></p>
+          <hr />
+          <img
+            src="img_avatar3.png"
+            alt="Avatar"
+            class="w3-left w3-circle w3-margin-right"
+            style="width: 60px"
+          />
+          <p><%= dataUser[i].address %></p>
+          <br />
+        </div>
+        <a
+          class="w3-button w3-block w3-dark-grey"
+          href="/"
+          style="font-size: 22px; text-decoration: none"
+          >Back</a
+        >
+      </div>
+      <% } %>
+    </div>
+  </body>
+</html>

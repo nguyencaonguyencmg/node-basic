@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Node.Js Basic</title>
+    <link
+      rel="stylesheet"
+      href="/css/style.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://www.w3schools.com/w3css/4/w3.css"
+    />
+  </head>
+
+  <body>
+    <div class="topnav">
+      <a
+        class="active"
+        href="/"
+        >Home</a
+      >
+      <a href="/upload">Upload file</a>
+    </div>
+    <button
+      onclick="toggleAdd()"
+      class="w3-button w3-border w3-white w3-border-blue w3-round-xlarge addnew-btn"
+    >
+      Add New User
+    </button>
+    <form
+      action="/create-new-user"
+      method="POST"
+    >
+      <div
+        id="add-action"
+        class="create-user-container"
+      >
+        <h3>
+          <b> Create a new user:</b>
+        </h3>
+        <div>
+          <label for="">First Name:</label>
+          <input
+            type="text"
+            name="firstName"
+          />
+        </div>
+        <div>
+          <label for="">Last Name:</label>
+          <input
+            type="text"
+            name="lastName"
+          />
+        </div>
+        <div>
+          <label for="">Email:</label>
+          <input
+            type="email"
+            name="email"
+          />
+        </div>
+        <div>
+          <label for="">Address:</label>
+          <input
+            type="text"
+            name="address"
+          />
+        </div>
+        <button
+          type="submit"
+          class="w3-button w3-black w3-round-xlarge addnew-btn"
+        >
+          Add new
+        </button>
+      </div>
+    </form>
+    <div style="padding-left: 16px">
+      <div class="w3-container">
+        <h2>List users Table</h2>
+        <table class="w3-table-all">
+          <thead>
+            <tr class="w3-black">
+              <th>ID</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for(let i=0; i < dataUser.length; i++) { %>
+            <tr class="w3-hover-gray">
+              <td><%= dataUser[i].ID %></td>
+              <td><%= dataUser[i].firstName %></td>
+              <td><%= dataUser[i].lastName %></td>
+              <td class="handle-btn">
+                <a
+                  class="w3-button w3-light-green"
+                  href="/detail/user/<%= dataUser[i].ID %>"
+                  >Detail</a
+                >
+                <form
+                  action="/edit-user/<%= dataUser[i].ID %>"
+                  method="GET"
+                >
+                  <button
+                    type="submit"
+                    class="w3-button w3-blue"
+                  >
+                    Edit
+                  </button>
+                </form>
+                <form
+                  action="/delete-user"
+                  method="POST"
+                >
+                  <input
+                    type="text"
+                    hidden
+                    value="<%= dataUser[i].ID %>"
+                    name="userId"
+                  />
+                  <button
+                    type="submit"
+                    class="w3-button w3-red"
+                  >
+                    Delete
+                  </button>
+                </form>
+              </td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+  <script>
+    function toggleAdd() {
+      var element = document.getElementById("add-action");
+      element.classList.toggle("show-hidden");
+    }
+  </script>
+</html>
